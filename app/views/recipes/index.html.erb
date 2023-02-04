@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+	p {
+		margin: 10px 10px 10px 10px;
+	}
+</style>
 <html>
 	<head>
 		<title>Mixitup!</title>
@@ -80,32 +85,28 @@
 		                    </div>
 		                </div>            
 		            </div>
+					<%= form_with model: @recipe do |form| %>
+					<div>
 		            <div class="inContainer test">
-		                <div style="background-color: #FE218B" class="module test">hi</div>
-		                <div style="background-color: #FED700" class="module test">hello</div>
-		                <div style="background-color: #21B0FE" class="module test">hey</div>
+		                <div style="background-color: #FE218B" class="module test">
+							<p> I have the following ingredients. I want something from Here. Here is what we suggest!
+								<%= form.label :ingredients%><br>
+								<%= form.text_area :ingredients %>
+							</p>
+						</div>
+		                <div style="background-color: #FED700" class="module test">
+							<p>
+								<%= form.label :origin %><br>
+								<%= form.text_area :origin %>
+							</p>
+						</div>
+		                <div style="background-color: #21B0FE" class="module test">
+							<p>
+								<%= form.submit %>
+							</p>
+						</div>
 		            </div>
+					<% end %>
 		        </div>
-		<h1>
-			Recipes#index
-		</h1>
-		<p>
-			I have the following ingredients. I want something from Here. Here is what we suggest!
-			<%= form_with model: @recipe do |form| %>
-			<div>
-				<%= form.label :ingredients%><br>
-				<%= form.text_area :ingredients %>
-				  </div>
-
-				  <div>
-				    <%= form.label :origin %><br>
-				    <%= form.text_area :origin %>
-				  </div>
-
-				  <div>
-				    <%= form.submit %>
-				  </div>
-				<% end %>
-		</p>
 	</body>
 </html>
