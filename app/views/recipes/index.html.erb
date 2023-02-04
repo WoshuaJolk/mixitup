@@ -91,6 +91,21 @@
 		</h1>
 		<p>
 			I have the following ingredients. I want something from Here. Here is what we suggest!
+			<%= form_with model: @recipe do |form| %>
+			<div>
+				<%= form.label :ingredients%><br>
+				<%= form.text_area :ingredients %>
+				  </div>
+
+				  <div>
+				    <%= form.label :origin %><br>
+				    <%= form.text_area :origin %>
+				  </div>
+
+				  <div>
+				    <%= form.submit %>
+				  </div>
+				<% end %>
 		</p>
 	</body>
 </html>
