@@ -2,7 +2,7 @@ require 'ruby/openai'
 
 class RecipesController < ApplicationController
   def show
-    temprecipe = Recipe. find(params[:id])
+    temp_recipe = Recipe.find(params[:id])
     
     openai = OpenAI::Client.new(access_token: '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')
     prompt = "Come up with a food recipe from '#{temprecipe.origin}'
@@ -15,9 +15,13 @@ class RecipesController < ApplicationController
        max_tokens: 500,
      }
     )
-    temprecipe.response = response['choices'][0]['text']
-    # Use Ai to update the hashmap here
-    @recipe = temprecipe
+    json_response = JSON.parse(response['choices'][0]['text'].lstrip)
+    
+    temp_recipe.title = json_response["title"]
+    temp_recipe.requirements = json_response["ingredients"].join("\n")
+    temp_recipe.instructions = json_response["instructions"].join("\n")
+
+    @recipe = temp_recipe
   end
 
   def new
@@ -25,7 +29,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(ingredients: params[:recipe][:ingredients], origin: params[:recipe][:origin], response: "...")
+    @recipe = Recipe.new(ingredients: params[:recipe][:ingredients], origin: params[:recipe][:origin],
+                         title: "...", instructions: "...", response: "...")
     if @recipe.save
       redirect_to @recipe
     else
