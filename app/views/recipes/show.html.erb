@@ -103,6 +103,27 @@
               font-family: 'Inter';
             }
 
+            .button {
+                background-color: white;
+                border: none;
+                font-family: 'Inter';
+                color: black;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 10px;
+                filter: drop-shadow(2px 2px 2px #00000025);
+                font-weight: bold;
+            }
+            .button:hover {
+                filter: none;
+                background-color: #EBEBEB;
+            }
+
             #footer {
             height: 50px; /* the footer's total height */
             text-align: center;
@@ -170,8 +191,8 @@
               </div>
               <div class="scroll">
               <%= @recipe.instructions %>
-              <%= link_to "Try Again", new_recipe_url%>
-            </div>
+              </div>
+              <%= link_to "Try Again", new_recipe_url, class:'button'%>
           </div>
         </div>
       </div>

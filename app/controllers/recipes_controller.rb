@@ -5,9 +5,13 @@ class RecipesController < ApplicationController
     temp_recipe = Recipe.find(params[:id])
     
     openai = OpenAI::Client.new(access_token: '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')
-    prompt = "Give me a native recipe title, measured ingredients separated by commas, and numbered instructions of a distinct '#{temp_recipe.origin}' cuisine
-              that uses the following ingredients: '#{temp_recipe.ingredients}'. The returned recipe should be in JSON format with 
-              three parameters 'title' and 'ingredients' and 'instructions' "
+    # prompt = "Give me a native recipe title, measured ingredients, and numbered instructions of a distinct '#{temp_recipe.origin}' cuisine
+    #           that uses the following ingredients: '#{temp_recipe.ingredients}'. The returned recipe should be in JSON format with 
+    #           three parameters 'title' and 'ingredients' and 'instructions' "
+    # prompt = "Give me the recipe to a '#{temp_recipe.origin}' dish with '#{temp_recipe.ingredients}'. The returned recipe should be in JSON format with 
+    # #           three parameters 'title' and 'ingredients' and 'instructions'"
+    prompt = "Give me a '#{temp_recipe.origin}' dish with '#{temp_recipe.ingredients}'. Avoid making up dishes or lying. The returned recipe should be in JSON format with 
+    three parameters 'title' (which is the dish's native name) and 'ingredients' and 'instructions'"
     response = openai.completions(
       parameters: {
         model: "text-davinci-003",
