@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+    p {
+    margin: 10px 10px 10px 10px;
+    }
+    </style>
+    <title>
+      Mixitup!
+    </title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&amp;display=swap" rel="stylesheet">
+    <style>
+              body {
+                  background-image: linear-gradient(#000000,#CACACA,#FFFFFF);
+                  margin: 0px;
+              }
+              .container{
+                  display: inline-block;
+                  width: 100%;
+                  flex-direction: column;
+              }
+              .headerContainer {
+                  position: relative;
+                  align-items: center;
+                  justify-content: center;
+              }
+              .inContainer {
+                  display: flex;
+                  flex-direction: row;
+              }
+              .spectrum {
+                  z-index: -1;
+                  position: absolute;
+              }
+              .titleBubble {
+                  width: fit-content;
+                  padding-left: 40px;
+                  padding-right: 40px;
+                  padding-top: 20px;
+                  padding-bottom: 20px;
+                  background-color:#00000030;
+                  border-radius: 50px;
+                  color:white;
+                  font-size: 75px;
+                  font-weight:800;
+                  align-items: center;
+                  justify-content: center;
+                  font-family: 'Inter';
+                  backdrop-filter: blur(20px);
+                  z-index: 1;
+                  position: relative;
+                  margin: 20px auto 20px auto;
+              }
+              .module {
+                  height: 400px;
+                  width: 33.33%
+              }
+              .test {
+                  outline-style: solid;
+                  outline-color: green;
+                  outline-width: 1px;
+              }
+    </style>
+  </head>
+  <body>
+    <div class="container test">
+      <div class="headerContainer test">
+        <div class="spectrum test">
+          <div id="trapezoid"></div><!-- <svg width="1436" height="180" viewBox="0 0 1436 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="#FED700"/>
+                            <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="black" fill-opacity="0.2"/>
+                            <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="#FE218B"/>
+                            <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="black" fill-opacity="0.2"/>
+                            <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="#21B0FE"/>
+                            <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="black" fill-opacity="0.2"/>
+                        </svg> -->
+        </div>
+        <div class="titleBubble test">
+          <div class="titleText test">
+            MIX IT UP!
+          </div>
+        </div>
+      </div><%= form_with model: @recipe do |form| %>
+      <div>
+        <div class="inContainer test">
+          <div style="background-color: #FE218B" class="module test">
+            <p>
+              I have the following
+            </p><%= form.label :ingredients%><br>
+            <%= form.text_area :ingredients %>
+          </div>
+          <div style="background-color: #FED700" class="module test">
+            <p>
+              I want something from Here.
+            </p><%= form.label :origin %><br>
+            <%= form.text_area :origin %>
+          </div>
+          <div style="background-color: #21B0FE" class="module test">
+            <p>
+              Here is what we suggest!
+            </p><%= form.submit %>
+          </div>
+        </div><%end %>
+      </div>
+    </div>
+  </body>
+</html>
