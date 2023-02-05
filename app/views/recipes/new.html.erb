@@ -21,6 +21,7 @@
                 display: inline-block;
                 width: 100%;
                 flex-direction: column;
+                margin: 0px;
             }
             .headerContainer {
                 position: relative;
@@ -33,10 +34,12 @@
                 font-family: 'Inter';
             }
             .spectrum {
+                top: 20px;
                 width: 100%;
                 z-index: -1;
-                height: 15vw;
+                height: 100%;
                 position: fixed;
+                object-fit: fill;
                 /* display: flex;
                 align-items: flex-end; */
             }
@@ -73,7 +76,7 @@
                 outline-style: solid;
                 outline-color: green;
                 outline-width: 1px;
-            } */
+            }  */
             .label {
                 font-size: 20px;
                 font-weight: bold;
@@ -93,9 +96,10 @@
                 filter: drop-shadow(2px 2px 2px #00000025);
             }
             .button {
-                background-color: #4CAF50;
+                background-color: white;
                 border: none;
-                color: white;
+                font-family: 'Inter';
+                color: black;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;
@@ -104,30 +108,36 @@
                 margin: 4px 2px;
                 cursor: pointer;
                 border-radius: 10px;
+                filter: drop-shadow(2px 2px 2px #00000025);
+                font-weight: bold;
+            }
+            .button:hover {
+                filter: none;
+                background-color: #EBEBEB;
             }
     </style>
 </head>
 <body>
     <div class="container test">
         <div class="headerContainer test">
-            <div class="spectrum test">
-                <svg width=100vw height=200px viewBox="0 0 1436 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="#FED700"/>
-                        <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="black" fill-opacity="0.2"/>
-                        <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="#FE218B"/>
-                        <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="black" fill-opacity="0.2"/>
-                        <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="#21B0FE"/>
-                        <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="black" fill-opacity="0.2"/>
+            <div class="spectrum">
+                <svg width=100vw height=20vh viewBox="0 0 1436 180" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="#FED700"/>
+                    <path d="M959 180H479L654.5 -1H782.5L959 180Z" fill="black" fill-opacity="0.2"/>
+                    <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="#FE218B"/>
+                    <path d="M526 -0.432602L0 180L478.5 179.433L654 -1L526 -0.432602Z" fill="black" fill-opacity="0.2"/>
+                    <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="#21B0FE"/>
+                    <path d="M910.402 -1L1436 180H959.365L783 -1H910.402Z" fill="black" fill-opacity="0.2"/>
                 </svg>
-                </div>
-        <div class="titleBubble test">
-            <div class="titleText test">
-            <span style="color:#FF8EC4;">MIX</span>
-            <span style="color:#FFE760;"> IT</span>
-            <span style="color:#9ADBFF;"> UP!</span>
             </div>
-        </div>
-    </div><%= form_with model: @recipe do |form| %>
+            <div class="titleBubble test">
+                <div class="titleText test">
+                    <span style="color:#FF8EC4;">MIX</span>
+                    <span style="color:#FFE760;"> IT</span>
+                    <span style="color:#9ADBFF;"> UP!</span>
+                </div>
+            </div>
+        </div><%= form_with model: @recipe do |form| %>
     <div>
         <div class="inContainer test">
             <div style="background-color: #FE218B" class="module test">
@@ -142,7 +152,7 @@
             <p class="label">
                 Try this out!
             </p>
-            <%= form.submit %>
+            <%= form.submit class:"button" %>
             </div><%end %>
         </div>
         </div>
