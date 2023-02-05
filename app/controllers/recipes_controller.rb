@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(ingredients: params[:recipe][:ingredients], origin: params[:recipe][:origin],
-                         title: "...", instructions: "...", response: "...")
+                         title: "...", instructions: "...", requirements: "...")
     if @recipe.save
       redirect_to @recipe
     else
