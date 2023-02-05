@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(ingredients: "...", origin: "...", response: "...")
+    @recipe = Recipe.new(ingredients: params[:recipe][:ingredients], origin: params[:recipe][:origin], response: "...")
     if @recipe.save
       redirect_to @recipe
     else
