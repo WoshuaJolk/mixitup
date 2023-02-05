@@ -83,6 +83,9 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -106,6 +109,7 @@ GEM
     mini_portile2 (2.8.1)
     minitest (5.17.0)
     msgpack (1.6.0)
+    multi_xml (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -162,6 +166,8 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.6.2)
     rexml (3.2.5)
+    ruby-openai (3.0.3)
+      httparty (>= 0.18.1, < 0.22.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -230,6 +236,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.2)
+  ruby-openai
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
