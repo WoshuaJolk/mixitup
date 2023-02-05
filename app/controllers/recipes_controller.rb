@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   def show
-    @recipe = Recipe.find(params[:id])
+    temprecipe = Recipe. find(params[:id])
+    # Use Ai to update the hashmap here
+    @recipe = temprecipe
   end
 
   def new
