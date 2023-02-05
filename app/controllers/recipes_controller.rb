@@ -5,8 +5,9 @@ class RecipesController < ApplicationController
     temp_recipe = Recipe.find(params[:id])
     
     openai = OpenAI::Client.new(access_token: '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')
-    prompt = "Come up with a food recipe from '#{temprecipe.origin}'
-              that uses the following ingredients: '#{temprecipe.ingredients}'"
+    prompt = "Come up with a recipe title, measured ingredients, and numbered instructions of cuisine from '#{temp_recipe.origin}'
+              that uses the following ingredients: '#{temp_recipe.ingredients}'. The returned recipe should be in JSON format with 
+              three parameters 'title' and 'ingredients' and 'instructions' "
     response = openai.completions(
      parameters: {
        model: "text-davinci-003",
