@@ -30,6 +30,7 @@
             .inContainer {
                 display: flex;
                 flex-direction: row;
+                font-family: 'Inter';
             }
             .spectrum {
                 z-index: -1;
@@ -63,12 +64,27 @@
             }
             .module {
                 height: 400px;
-                width: 33.33%
+                width: 33.33%;
+                padding: 20px;
+                text-align: center;
             }
             .test {
                 outline-style: solid;
                 outline-color: green;
                 outline-width: 1px;
+            }
+            .label {
+                font-size: 20px;
+                font-weight: bold;
+                color: #FFFFFF;
+            }
+
+            .textarea {
+                width: 20vw;
+                height: 200px;
+                font-size: 16px;
+                padding: 10px;
+                resize: none;
             }
     </style>
 </head>
@@ -96,20 +112,16 @@
     <div>
         <div class="inContainer test">
             <div style="background-color: #FE218B" class="module test">
-                <p>
-                    I have the following
-                </p><%= form.label :ingredients%><br>
-            <%= form.text_area :ingredients %>
+                <%= form.label :ingredients, class: 'label'%><br>
+                <%= form.text_area :ingredients, class: 'textarea' %>
             </div>
         <div style="background-color: #FED700" class="module test">
-            <p>
-                I want something from Here.
-            </p><%= form.label :origin %><br>
-            <%= form.text_area :origin %>
+            <%= form.label :origin, class: 'label' %><br>
+            <%= form.text_area :origin, class: 'textarea' %>
             </div>
             <div style="background-color: #21B0FE" class="module test">
-            <p>
-                Here is what we suggest!
+            <p class="label">
+                Recipe Name 
             </p><%= form.submit %>
             </div>
             </div><%end %>
