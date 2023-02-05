@@ -4,16 +4,16 @@ class RecipesController < ApplicationController
   def show
     temp_recipe = Recipe.find(params[:id])
     
-    openai = OpenAI::Client.new(access_token: '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')
-    prompt = "Come up with a recipe title, measured ingredients, and numbered instructions of cuisine from '#{temp_recipe.origin}'
+    openai = OpenAI::Client.new(access_token: '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')
+    prompt = "Give me a native recipe title, measured ingredients separated by commas, and numbered instructions of a distinct '#{temp_recipe.origin}' cuisine
               that uses the following ingredients: '#{temp_recipe.ingredients}'. The returned recipe should be in JSON format with 
               three parameters 'title' and 'ingredients' and 'instructions' "
     response = openai.completions(
-     parameters: {
-       model: "text-davinci-003",
-       prompt: prompt,
-       temperature: 0.1,
-       max_tokens: 500,
+      parameters: {
+        model: "text-davinci-003",
+        prompt: prompt,
+        temperature: 0.1,
+        max_tokens: 500,
      }
     )
     json_response = JSON.parse(response['choices'][0]['text'].lstrip)

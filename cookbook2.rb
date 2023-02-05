@@ -1,6 +1,6 @@
 require 'ruby/openai'
 
-openai = OpenAI::Client.new(access_token: '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')
+openai = OpenAI::Client.new(access_token: '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')
 
 ilist = "water, noodles, salt"
 
